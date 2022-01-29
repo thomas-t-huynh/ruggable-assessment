@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import Input from '../../Components/Atoms/Input/Input';
+
+import { Input } from '../../Components/Molecules';
+import { Spacer } from '../../Components/Atoms';
 
 import { Container, Card, InstagramLogo } from './Login.styles';
 
@@ -17,6 +19,7 @@ export function Login() {
       [event.target.name]: event.target.value,
     });
   };
+
   return (
     <Container>
       <Card>
@@ -28,6 +31,7 @@ export function Login() {
           name="username"
           onChange={handleOnChange}
         />
+        <Spacer height={10} />
         <Input
           label="Password"
           type="password"
