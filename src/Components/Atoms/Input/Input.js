@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { Container, InputStyled, LabelStyled } from './input.styles';
+import {
+  Container,
+  InputStyled,
+  LabelStyled,
+  ShowButton,
+} from './input.styles';
 
-export default function Input(props) {
-  const { value, type, label } = props;
-  const [showPassword, setShowPassword] = useState();
+export default function Input({ label, type, ...rest }) {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <Container>
-      <LabelStyled value={props.value}>{label}</LabelStyled>
-      <InputStyled {...props}></InputStyled>
+      <LabelStyled value={rest.value}>{label}</LabelStyled>
+      <InputStyled type={showPassword ? 'text' : type} {...rest}></InputStyled>
+      <ShowButton>Show</ShowButton>
     </Container>
   );
 }

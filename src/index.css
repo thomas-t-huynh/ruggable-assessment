@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(./Fonts/Roboto/Roboto-Black.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-BlackItalic.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-Bold.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-BoldItalic.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-Italic.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-LightItalic.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-Medium.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-MediumItalic.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-Regular.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-Thin.ttf) format('truetype'),
+    url(./Fonts/Roboto/Roboto-ThinItalic.ttf) format('truetype');
+}

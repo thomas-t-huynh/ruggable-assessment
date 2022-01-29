@@ -22,5 +22,4 @@ export const InstagramLogo = styled.img.attrs({
 })`
   height: 50px;
   width: 175px;
-  marg
 `;

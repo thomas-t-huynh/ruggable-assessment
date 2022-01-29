@@ -4,6 +4,7 @@ export const colors = {
     inputBackground: 'rgb(250, 250, 250)',
   },
   text: {
+    primary: 'rgb(38, 38, 38)',
     placeholder: 'rgb(142, 142, 142)',
   },
 };
