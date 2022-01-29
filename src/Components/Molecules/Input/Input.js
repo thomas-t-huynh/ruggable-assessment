@@ -8,11 +8,12 @@ import {
 
 export function Input({ label, type, ...rest }) {
   const [showPassword, setShowPassword] = useState(false);
+  const revealShowButton = type === 'password' && rest.value.length > 0;
   return (
     <Container>
       <LabelStyled value={rest.value}>{label}</LabelStyled>
       <InputStyled type={showPassword ? 'text' : type} {...rest}></InputStyled>
-      {type === 'password' && rest.value.length > 0 && (
+      {revealShowButton && (
         <ShowButton onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? 'Hide' : 'Show'}
         </ShowButton>

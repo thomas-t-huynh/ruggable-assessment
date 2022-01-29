@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 import { Input } from '../../Components/Molecules';
-import { Spacer } from '../../Components/Atoms';
-
+import { Button, Spacer } from '../../Components/Atoms';
 import { Container, Card, InstagramLogo } from './Login.styles';
 
 export function Login() {
@@ -39,6 +38,7 @@ export function Login() {
           name="password"
           onChange={handleOnChange}
         />
+        <Button>Log In</Button>
       </Card>
     </Container>
   );

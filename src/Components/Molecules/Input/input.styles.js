@@ -2,27 +2,27 @@ import styled from 'styled-components';
 
 import { colors } from '../../../Themes/colors';
 
-export const Container = styled.div`
-  height: 38px;
-  width: 266px;
-`;
-
 const getPadding = (value, name) => {
   if (!value) {
     return '8px';
   }
-  if (name === 'password') {
+  if (name.includes('password')) {
     return value.length ? '16px 52px 0px 8px' : '8px';
   }
   return value.length ? '16px 8px 0px 8px' : '8px';
 };
 
 const getWidth = (value, name) => {
-  if (name === 'password' && value && value.length) {
+  if (name.includes('password') && value && value.length) {
     return value.length ? '206px' : '250px';
   }
   return '250px';
 };
+
+export const Container = styled.div`
+  height: 38px;
+  width: 266px;
+`;
 
 export const InputStyled = styled.input`
   background: ${colors.ui.inputBackground};
@@ -32,6 +32,7 @@ export const InputStyled = styled.input`
   font-size: 12px;
   text-overflow: ellipsis;
   padding: ${({ value, name }) => getPadding(value, name)};
+  color: ${colors.text.primary};
   &:focus {
     outline: none;
   }
