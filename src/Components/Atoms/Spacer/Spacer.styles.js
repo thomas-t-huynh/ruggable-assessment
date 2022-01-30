@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledDiv = styled.div`
-  height: ${(props) => `${props.height}px`};
-  width: ${(props) => `${props.width}px`};
+  height: ${({ height }) => `${height}px`};
+  width: ${({ width }) => `${width}px`};
+  display: ${({ width }) => (width ? "inline-block" : "block")};
 `;

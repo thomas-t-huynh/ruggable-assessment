@@ -6,8 +6,15 @@ import FacebookPng from "../../Assets/Images/facebook-logo.png";
 import { BorderlessButton, Button, Link } from "../../Components/Atoms";
 
 export const Container = styled.div`
-  width: 910px;
   margin: 0 auto;
+  margin-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 14px;
+  }
 `;
 
 export const Card = styled.div`
@@ -20,7 +27,6 @@ export const Card = styled.div`
   background: ${colors.ui.primary};
   margin-bottom: 10px;
   p {
-    font-size: 14px;
     a {
       font-weight: 600;
     }
@@ -78,4 +84,34 @@ export const FacebookButton = styled(BorderlessButton)`
 
 export const ForgotPWLink = styled(Link)`
   margin: 12px 0px 10px 0px;
+`;
+
+export const GetAppContainer = styled.div`
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const GetAppButtonContainer = styled.div`
+  margin: 10px 0px;
+`;
+
+export const AppDownloadImg = styled.img`
+  width: 136px;
+  height: 40px;
+`;
+
+export const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+export const FooterLink = styled(Link)`
+  margin: 0px 8px 12px 8px;
+  display: inline-block;
 `;

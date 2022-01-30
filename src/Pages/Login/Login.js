@@ -13,14 +13,22 @@ import {
   FacebookButton,
   FacebookIcon,
   ForgotPWLink,
+  GetAppContainer,
+  AppDownloadImg,
+  GetAppButtonContainer,
+  StyledFooter,
+  FooterLink,
+  FooterLinkContainer,
 } from "./Login.styles";
 import { colors } from "../../Themes/colors";
-
-const errorMessages = {
-  excessiveLogin: "Please wait a few minutes before you try again.",
-  incorrectUser:
-    "Sorry, your password was incorrect. Please double-check your password.",
-};
+import {
+  googlePlayURL,
+  appleStoreURL,
+  footerLinks1,
+  footerLinks2,
+} from "./Login.utils";
+import AppleStoreImage from "../../Assets/Images/apple-store-image.png";
+import GooglePlayImage from "../../Assets/Images/google-play-image.png";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -51,7 +59,7 @@ export function Login() {
     <Container>
       <Spacer height={50} />
       <Card>
-        <InstagramLogo />;
+        <InstagramLogo />
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -91,6 +99,31 @@ export function Login() {
           <Link color={colors.ui.primaryButton}>Sign up</Link>
         </p>
       </Card>
+      <GetAppContainer>
+        <p>Get the app.</p>
+        <GetAppButtonContainer>
+          <Link href={appleStoreURL}>
+            <AppDownloadImg src={AppleStoreImage} alt="apple store link" />
+          </Link>
+          <Spacer width={8} />
+          <Link href={googlePlayURL}>
+            <AppDownloadImg src={GooglePlayImage} alt="google play link" />
+          </Link>
+        </GetAppButtonContainer>
+      </GetAppContainer>
+      <StyledFooter>
+        <div>
+          {footerLinks1.map(({ name, href }) => (
+            <FooterLink href={href}>{name}</FooterLink>
+          ))}
+        </div>
+        <div>
+          {footerLinks2.map(({ name, href }) => (
+            <FooterLink href={href}>{name}</FooterLink>
+          ))}
+        </div>
+        <div>English v © 2022 Instagram from Meta</div>
+      </StyledFooter>
     </Container>
   );
 }
