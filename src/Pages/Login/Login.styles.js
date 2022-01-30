@@ -3,20 +3,28 @@ import styled from "styled-components";
 import { colors } from "../../Themes/colors";
 import InstagramText from "../../Assets/Images/instagram-logo.png";
 import FacebookPng from "../../Assets/Images/facebook-logo.png";
-import { BorderlessButton, Button } from "../../Components/Atoms";
+import { BorderlessButton, Button, Link } from "../../Components/Atoms";
 
 export const Container = styled.div`
   width: 910px;
+  margin: 0 auto;
 `;
 
 export const Card = styled.div`
   width: 350px;
-  height: 438px;
   border: 1px solid ${colors.ui.border};
   padding: 10px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: ${colors.ui.primary};
+  margin-bottom: 10px;
+  p {
+    font-size: 14px;
+    a {
+      font-weight: 600;
+    }
+  }
 `;
 
 export const InstagramLogo = styled.img.attrs({
@@ -65,4 +73,9 @@ export const FacebookButton = styled(BorderlessButton)`
   color: #385185;
   display: flex;
   align-items: center;
+  margin: 8px 0px;
+`;
+
+export const ForgotPWLink = styled(Link)`
+  margin: 12px 0px 10px 0px;
 `;

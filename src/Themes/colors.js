@@ -1,7 +1,8 @@
 export const colors = {
   ui: {
+    primary: "#ffffff",
+    secondary: "#fafafa",
     border: "rgba(var(--b6a,219,219,219),1)",
-    inputBackground: "rgb(250, 250, 250)",
     primaryButton: "#0095f6",
     hr: " #dbdbdb;",
   },

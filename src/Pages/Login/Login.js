@@ -12,6 +12,7 @@ import {
   LineText,
   FacebookButton,
   FacebookIcon,
+  ForgotPWLink,
 } from "./Login.styles";
 import { colors } from "../../Themes/colors";
 
@@ -50,24 +51,31 @@ export function Login() {
     <Container>
       <Spacer height={50} />
       <Card>
-        <InstagramLogo />
-        <Input
-          label="Phone number, username, or email"
-          type="email"
-          value={username}
-          name="username"
-          onChange={handleOnChange}
-        />
-        <Input
-          label="Password"
-          type="password"
-          value={password}
-          name="password"
-          onChange={handleOnChange}
-        />
-        <ButtonStyled disabled={!isValid}>
-          {loading ? <LoadingSpinner /> : "Log In"}
-        </ButtonStyled>
+        <InstagramLogo />;
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log("submitted");
+          }}
+        >
+          <Input
+            label="Phone number, username, or email"
+            type="text"
+            value={username}
+            name="username"
+            onChange={handleOnChange}
+          />
+          <Input
+            label="Password"
+            type="password"
+            value={password}
+            name="password"
+            onChange={handleOnChange}
+          />
+          <ButtonStyled type="submit" disabled={!isValid}>
+            {loading ? <LoadingSpinner /> : "Log In"}
+          </ButtonStyled>
+        </form>
         <LineContainer>
           <Line /> <LineText>OR</LineText> <Line />
         </LineContainer>
@@ -75,7 +83,13 @@ export function Login() {
           <FacebookIcon />
           Log in with Facebook
         </FacebookButton>
-        <Link color={colors.text.link1}>Forgot password?</Link>
+        <ForgotPWLink color={colors.text.link1}>Forgot password?</ForgotPWLink>
+      </Card>
+      <Card>
+        <p>
+          Don't have an account?{" "}
+          <Link color={colors.ui.primaryButton}>Sign up</Link>
+        </p>
       </Card>
     </Container>
   );

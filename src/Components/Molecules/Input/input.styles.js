@@ -27,7 +27,7 @@ export const Container = styled.div`
 `;
 
 export const InputStyled = styled.input`
-  background: ${colors.ui.inputBackground};
+  background: ${colors.ui.secondary};
   border: 1px solid ${colors.ui.border};
   width: ${({ value, name }) => getWidth(value, name)};
   height: 22px;
@@ -35,6 +35,7 @@ export const InputStyled = styled.input`
   text-overflow: ellipsis;
   padding: ${({ value, name }) => getPadding(value, name)};
   color: ${colors.text.primary};
+  border-radius: 3px;
   &:focus {
     outline: none;
   }

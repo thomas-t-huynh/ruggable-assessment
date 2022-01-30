@@ -1,4 +1,6 @@
 .App {
   font-size: 12px;
   color: rgb(38, 38, 38);
+  min-height: 100vh;
+  background: #fafafa;
 }
