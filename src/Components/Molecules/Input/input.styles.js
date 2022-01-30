@@ -1,27 +1,29 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { colors } from '../../../Themes/colors';
+import { colors } from "../../../Themes/colors";
+import { BorderlessButton } from "../../Atoms";
 
 const getPadding = (value, name) => {
   if (!value) {
-    return '8px';
+    return "8px";
   }
-  if (name.includes('password')) {
-    return value.length ? '16px 52px 0px 8px' : '8px';
+  if (name.includes("password")) {
+    return value.length ? "16px 52px 0px 8px" : "8px";
   }
-  return value.length ? '16px 8px 0px 8px' : '8px';
+  return value.length ? "16px 8px 0px 8px" : "8px";
 };
 
 const getWidth = (value, name) => {
-  if (name.includes('password') && value && value.length) {
-    return value.length ? '206px' : '250px';
+  if (name.includes("password") && value && value.length) {
+    return value.length ? "206px" : "250px";
   }
-  return '250px';
+  return "250px";
 };
 
 export const Container = styled.div`
   height: 38px;
   width: 266px;
+  margin-bottom: 6px;
 `;
 
 export const InputStyled = styled.input`
@@ -40,23 +42,15 @@ export const InputStyled = styled.input`
 
 export const LabelStyled = styled.label`
   color: ${colors.text.placeholder};
-  font-size: ${({ value }) => (value && value.length ? '10px' : '12px')};
+  font-size: ${({ value }) => (value && value.length ? "10px" : "12px")};
   position: absolute;
-  margin: ${({ value }) => (value && value.length ? '2px' : '11px')};
+  margin: ${({ value }) => (value && value.length ? "2px" : "11px")};
   margin-left: 8px;
   transition: margin 150ms, font-size 150ms;
   pointer-events: none;
 `;
 
-export const ShowButton = styled.button`
-  background: none;
-  color: inherit;
-  border: none;
-  outline: inherit;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: inherit;
-  cursor: pointer;
+export const ShowButton = styled(BorderlessButton)`
   position: absolute;
   margin-top: -31.5px;
   margin-left: 216px;
