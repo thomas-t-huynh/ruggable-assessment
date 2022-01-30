@@ -21,6 +21,7 @@ import {
   CopyrightText,
   ChevronSpan,
   CardContainer,
+  TopContainer,
 } from "./Login.styles";
 import { colors } from "../../Themes/colors";
 import {
@@ -61,7 +62,7 @@ export function Login() {
 
   return (
     <Container>
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
+      <TopContainer>
         <Slideshow images={slideShowImages} />
         <CardContainer>
           <Card>
@@ -120,7 +121,7 @@ export function Login() {
             </GetAppButtonContainer>
           </GetAppContainer>
         </CardContainer>
-      </div>
+      </TopContainer>
       <StyledFooter>
         <div>
           {footerLinks1.map(({ name, href }) => (

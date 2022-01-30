@@ -17,8 +17,13 @@ export const Container = styled.div`
   }
 `;
 
+export const TopContainer = styled.div`
+  margin-top: 32px;
+  display: flex;
+`;
+
 export const CardContainer = styled.div`
-  margin: 32px 0px;
+  margin: 32px 0px 32px -15px;
   display: flex;
   flex-direction: column;
   justify-content: center;

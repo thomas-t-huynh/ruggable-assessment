@@ -24,5 +24,5 @@ export const SlideImage = styled.img`
   width: 240.5px;
   opacity: ${({ isDisplay }) => (!isDisplay ? 0 : 1)};
   display: ;
-  transition: opacity ease 2s;
+  transition: opacity ease-out 2s;
 `;
