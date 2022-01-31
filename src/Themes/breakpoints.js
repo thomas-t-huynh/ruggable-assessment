@@ -10,6 +10,7 @@ export const device = {
 };
 
 export const startingMediaQuery = (() => {
+  if (typeof window === "undefined") return;
   for (const key in device) {
     const mediaMatches = window.matchMedia(device[key]).matches;
     if (mediaMatches) {

@@ -30,8 +30,6 @@ export function Login() {
 
   const view = useMediaQuery();
 
-  console.log(view);
-
   const { username, password } = user;
 
   const handleOnChange = (event) => {
@@ -79,9 +77,9 @@ export function Login() {
           <GetAppContainer>
             <p>Get the app.</p>
             <GetAppButtonContainer>
-              <GooglePlayButton />
-              <Spacer width={8} />
               <AppleStoreButton />
+              <Spacer width={8} />
+              <GooglePlayButton />
             </GetAppButtonContainer>
           </GetAppContainer>
         </CardContainer>
