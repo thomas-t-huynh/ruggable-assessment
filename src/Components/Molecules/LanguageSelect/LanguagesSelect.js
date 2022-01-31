@@ -1,6 +1,9 @@
-export function LanguageSelect() {
+import React from 'react';
+
+export function LanguageSelect({ onChange, value }) {
+
   return (
-    <select aria-label="Switch Display Language">
+    <select onChange={onChange} value={value} aria-label="Switch Display Language">
       <option value="af">Afrikaans</option>
       <option value="cs">Čeština</option>
       <option value="da">Dansk</option>

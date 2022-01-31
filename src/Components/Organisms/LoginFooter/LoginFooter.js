@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   StyledFooter,
@@ -11,6 +11,12 @@ import { ReactComponent as Chevron } from "../../../Assets/Images/chevron.svg";
 import { LanguageSelect } from "../../Molecules";
 
 export function LoginFooter() {
+  const [value, setValue] = useState("English");
+
+  const handleOnChange = (event) => {
+    const index = event.nativeEvent.target.selectedIndex;
+    setValue(event.nativeEvent.target[index].text);
+  };
   return (
     <StyledFooter>
       <div>
@@ -28,8 +34,8 @@ export function LoginFooter() {
         ))}
       </div>
       <CopyrightText>
-        <LanguageSelect />
-        English{" "}
+        <LanguageSelect onChange={handleOnChange} value={value} />
+        {value}{" "}
         <ChevronSpan>
           <Chevron />
         </ChevronSpan>
