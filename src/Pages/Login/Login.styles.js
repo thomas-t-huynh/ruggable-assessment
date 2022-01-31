@@ -21,6 +21,9 @@ export const Container = styled.div`
 export const TopContainer = styled.div`
   margin-top: 32px;
   display: flex;
+  @media (max-width: ${size.mobile}px) {
+    margin-top: 0px;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -31,6 +34,9 @@ export const CardContainer = styled.div`
   flex-grow: 1;
   @media (max-width: ${size.tablet}px) {
     margin-left: 0px;
+  }
+  @media (max-width: ${size.mobile}px) {
+    margin-top: 0px;
   }
 `;
 

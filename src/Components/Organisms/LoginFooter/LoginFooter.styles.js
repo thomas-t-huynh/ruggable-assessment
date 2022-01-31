@@ -10,7 +10,7 @@ export const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 50px;
+  margin: 24px 0px 50px 0px;
 `;
 
 export const FooterLink = styled(Link)`
