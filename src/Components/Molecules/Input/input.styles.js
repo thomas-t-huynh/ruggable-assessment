@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { size } from "../../../Themes/breakpoints";
 import { colors } from "../../../Themes/colors";
 import { BorderlessButton } from "../../Atoms";
 
@@ -36,6 +37,9 @@ export const InputStyled = styled.input`
   padding: ${({ value, name }) => getPadding(value, name)};
   color: ${colors.text.primary};
   border-radius: 3px;
+  @media (max-width: ${size.mobile}px) {
+    background: ${colors.ui.primary};
+  }
   &:focus {
     outline: none;
   }

@@ -4,12 +4,7 @@ import { colors } from "../../Themes/colors";
 import InstagramText from "../../Assets/Images/instagram-logo.png";
 import FacebookPng from "../../Assets/Images/facebook-logo.png";
 import { BorderlessButton, Button, Link } from "../../Components/Atoms";
-
-// breakpoints
-//================
-// tablet - 875px
-
-// mobile - 450px
+import { size } from "../../Themes/breakpoints";
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -34,6 +29,9 @@ export const CardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
+  @media (max-width: ${size.tablet}px) {
+    margin-left: 0px;
+  }
 `;
 
 export const Card = styled.div`
@@ -45,6 +43,10 @@ export const Card = styled.div`
   align-items: center;
   background: ${colors.ui.primary};
   margin-bottom: 10px;
+  @media (max-width: ${size.mobile}px) {
+    border: none;
+    background: none;
+  }
   p {
     a {
       font-weight: 600;
@@ -121,36 +123,4 @@ export const GetAppContainer = styled.div`
 
 export const GetAppButtonContainer = styled.div`
   margin: 10px 0px;
-`;
-
-export const AppDownloadImg = styled.img`
-  width: 136px;
-  height: 40px;
-`;
-
-export const StyledFooter = styled.footer`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 50px;
-`;
-
-export const FooterLink = styled(Link)`
-  margin: 0px 8px 12px 8px;
-  display: inline-block;
-`;
-
-export const CopyrightText = styled.div`
-  color: ${colors.text.link2};
-  font-size: 12px;
-  margin: 12px 0px;
-`;
-
-export const ChevronSpan = styled.span`
-  transform: rotate(180deg);
-  display: inline-block;
-  margin-right: 16px;
 `;

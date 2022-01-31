@@ -2,7 +2,7 @@ export const colors = {
   ui: {
     primary: "#ffffff",
     secondary: "#fafafa",
-    border: "rgba(var(--b6a,219,219,219),1)",
+    border: "#dbdbdb",
     primaryButton: "#0095f6",
     hr: " #dbdbdb;",
   },

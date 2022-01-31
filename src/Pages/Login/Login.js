@@ -1,41 +1,23 @@
 import React, { useEffect, useState } from "react";
 
-import { Input, Slideshow } from "../../Components/Molecules";
-import { Spacer, LoadingSpinner, Link } from "../../Components/Atoms";
+import {
+  AppleStoreButton,
+  GooglePlayButton,
+  Slideshow,
+} from "../../Components/Molecules";
+import { Spacer, Link } from "../../Components/Atoms";
 import {
   Container,
   Card,
-  InstagramLogo,
-  ButtonStyled,
-  Line,
-  LineContainer,
-  LineText,
-  FacebookButton,
-  FacebookIcon,
-  ForgotPWLink,
   GetAppContainer,
-  AppDownloadImg,
   GetAppButtonContainer,
-  StyledFooter,
-  FooterLink,
-  CopyrightText,
-  ChevronSpan,
   CardContainer,
   TopContainer,
-  ErrorMessage,
 } from "./Login.styles";
 import { colors } from "../../Themes/colors";
-import {
-  googlePlayURL,
-  appleStoreURL,
-  footerLinks1,
-  footerLinks2,
-  slideShowImages,
-} from "./Login.utils";
-import AppleStoreImage from "../../Assets/Images/apple-store-image.png";
-import GooglePlayImage from "../../Assets/Images/google-play-image.png";
-import { ReactComponent as Chevron } from "../../Assets/Images/chevron.svg";
+import { slideShowImages } from "./Login.utils";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import { LoginFooter, LoginForm } from "../../Components/Organisms";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -59,6 +41,11 @@ export function Login() {
     });
   };
 
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    console.log("Submitted");
+  };
+
   useEffect(() => {
     if (username.length && password.length >= 6) {
       return setIsValid(true);
@@ -72,42 +59,16 @@ export function Login() {
         {view === "desktop" && <Slideshow images={slideShowImages} />}
         <CardContainer>
           <Card>
-            <InstagramLogo />
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                console.log("submitted");
+            <LoginForm
+              {...{
+                handleOnChange,
+                handleOnSubmit,
+                user,
+                isValid,
+                loading,
+                errorMessage,
               }}
-            >
-              <Input
-                label="Phone number, username, or email"
-                type="text"
-                value={username}
-                name="username"
-                onChange={handleOnChange}
-              />
-              <Input
-                label="Password"
-                type="password"
-                value={password}
-                name="password"
-                onChange={handleOnChange}
-              />
-              <ButtonStyled type="submit" disabled={!isValid}>
-                {loading ? <LoadingSpinner /> : "Log In"}
-              </ButtonStyled>
-            </form>
-            <LineContainer>
-              <Line /> <LineText>OR</LineText> <Line />
-            </LineContainer>
-            <FacebookButton>
-              <FacebookIcon />
-              Log in with Facebook
-            </FacebookButton>
-            <ErrorMessage isDisplay={errorMessage}>{errorMessage}</ErrorMessage>
-            <ForgotPWLink color={colors.text.link1}>
-              Forgot password?
-            </ForgotPWLink>
+            />
           </Card>
           <Card>
             <p>
@@ -118,40 +79,14 @@ export function Login() {
           <GetAppContainer>
             <p>Get the app.</p>
             <GetAppButtonContainer>
-              <Link href={appleStoreURL}>
-                <AppDownloadImg src={AppleStoreImage} alt="apple store link" />
-              </Link>
+              <GooglePlayButton />
               <Spacer width={8} />
-              <Link href={googlePlayURL}>
-                <AppDownloadImg src={GooglePlayImage} alt="google play link" />
-              </Link>
+              <AppleStoreButton />
             </GetAppButtonContainer>
           </GetAppContainer>
         </CardContainer>
       </TopContainer>
-      <StyledFooter>
-        <div>
-          {footerLinks1.map(({ name, href }) => (
-            <FooterLink key={name} href={href}>
-              {name}
-            </FooterLink>
-          ))}
-        </div>
-        <div>
-          {footerLinks2.map(({ name, href }) => (
-            <FooterLink key={name} href={href}>
-              {name}
-            </FooterLink>
-          ))}
-        </div>
-        <CopyrightText>
-          English{" "}
-          <ChevronSpan>
-            <Chevron />
-          </ChevronSpan>
-          © 2022 Instagram from Meta
-        </CopyrightText>
-      </StyledFooter>
+      <LoginFooter />
     </Container>
   );
 }
