@@ -1,5 +1,10 @@
 import express from "express";
 import morgan from "morgan";
+
+import loginRouter from "./routers/login/login";
+
+// ssr code imports --- may revist
+
 // import fs from "fs";
 // import path from "path";
 // import { ServerStyleSheet } from "styled-components";
@@ -27,52 +32,10 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.json());
+app.use(loginRouter);
 
-const database = {
-  thomas927: {
-    password: "password",
-    username: "thomas927",
-  },
-};
-
-const loginCount = {};
-
-export const errorMessages = {
-  excessiveLogin: "Please wait a few minutes before you try again.",
-  incorrectUser:
-    "Sorry, your password was incorrect. Please double-check your password.",
-};
-
-function checkLoginCount(ip) {
-  if (loginCount.hasOwnProperty(ip)) {
-    loginCount[ip]++;
-    if (loginCount[ip] >= 5) {
-      return true;
-    }
-  } else {
-    loginCount[ip] = 0;
-    return false;
-  }
-}
-
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  const isValidLogin =
-    database.hasOwnProperty(username) &&
-    database[username].password === password;
-
-  if (isValidLogin) {
-    return res.status(202).send({ message: "" });
-  }
-
-  const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-
-  if (checkLoginCount(ip)) {
-    return res.status(429).send({ message: errorMessages.excessiveLogin });
-  }
-  res.status(401).send({ message: errorMessages.incorrectUser });
-});
-
+// My attempt at SSR this app. I'm running into issues making it compatible with styled-components. Maybe set a bundle configuration where all files are in one?
+// =================================================================================
 // app.use("^/$", (req, res, next) => {
 //   fs.readFile(path.resolve("./build/index.html"), "utf-8", (err, data) => {
 //     const sheet = new ServerStyleSheet();
@@ -96,6 +59,7 @@ app.post("/login", (req, res) => {
 // }
 
 // app.use(express.static(path.resolve(__dirname, "..", "build")));
+// =================================================================================
 
 app.listen(PORT, () => {
   console.log(`App launched on ${PORT}`);

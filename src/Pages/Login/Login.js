@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   AppleStoreButton,
@@ -28,9 +29,8 @@ export function Login() {
   const [loading, setLoading] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [loginCount, setLoginCount] = useState(0);
-
   const view = useMediaQuery();
+  const navigate = useNavigate();
 
   const { username, password } = user;
 
@@ -44,15 +44,14 @@ export function Login() {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    loginUser(user)
-      .then((data) => {
-        setErrorMessage(data.message);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        setErrorMessage(error.message);
-      });
+    loginUser(user).then((data) => {
+      setLoading(false);
+      if (data.error) {
+        return setErrorMessage(data.error);
+      }
+      setErrorMessage("");
+      navigate("/main");
+    });
   };
 
   useEffect(() => {
