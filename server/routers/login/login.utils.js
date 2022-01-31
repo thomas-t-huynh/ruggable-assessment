@@ -12,7 +12,7 @@ export const errorMessages = {
 
 const loginCount = {};
 
-export function checkLoginCount(ip) {
+export function checkExcessiveLogin(ip) {
   if (loginCount[ip] >= 5) {
     return true;
   }

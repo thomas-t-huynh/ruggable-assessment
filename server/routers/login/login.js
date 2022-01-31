@@ -2,7 +2,7 @@ import express from "express";
 
 import {
   addLoginCount,
-  checkLoginCount,
+  checkExcessiveLogin,
   database,
   errorMessages,
 } from "./login.utils";
@@ -12,7 +12,7 @@ const router = new express.Router();
 router.post("/login", (req, res) => {
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
-  if (checkLoginCount(ip)) {
+  if (checkExcessiveLogin(ip)) {
     return res.status(429).send({ error: errorMessages[429] });
   }
 
