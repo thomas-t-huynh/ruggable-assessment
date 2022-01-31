@@ -13,5 +13,6 @@ export const colors = {
     hr: "#8e8e8e",
     link1: "#00376b",
     link2: "#8e8e8e",
+    error: "#ed4956",
   },
 };

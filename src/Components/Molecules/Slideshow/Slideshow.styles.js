@@ -5,23 +5,13 @@ export const Container = styled.div`
   position: relative;
 `;
 
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-`;
-
 export const SlideImage = styled.img`
   position: absolute;
   z-index: 2;
   left: 150px;
   top: 98px;
   height: 430px;
-  width: 240.5px;
+  width: 241px;
   opacity: ${({ isDisplay }) => (!isDisplay ? 0 : 1)};
   display: ;
   transition: opacity ease-out 2s;

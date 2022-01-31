@@ -22,6 +22,7 @@ import {
   ChevronSpan,
   CardContainer,
   TopContainer,
+  ErrorMessage,
 } from "./Login.styles";
 import { colors } from "../../Themes/colors";
 import {
@@ -34,6 +35,7 @@ import {
 import AppleStoreImage from "../../Assets/Images/apple-store-image.png";
 import GooglePlayImage from "../../Assets/Images/google-play-image.png";
 import { ReactComponent as Chevron } from "../../Assets/Images/chevron.svg";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -43,6 +45,10 @@ export function Login() {
   const [loading, setLoading] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const view = useMediaQuery();
+
+  console.log(view);
 
   const { username, password } = user;
 
@@ -63,7 +69,7 @@ export function Login() {
   return (
     <Container>
       <TopContainer>
-        <Slideshow images={slideShowImages} />
+        {view === "desktop" && <Slideshow images={slideShowImages} />}
         <CardContainer>
           <Card>
             <InstagramLogo />
@@ -98,6 +104,7 @@ export function Login() {
               <FacebookIcon />
               Log in with Facebook
             </FacebookButton>
+            <ErrorMessage isDisplay={errorMessage}>{errorMessage}</ErrorMessage>
             <ForgotPWLink color={colors.text.link1}>
               Forgot password?
             </ForgotPWLink>

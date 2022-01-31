@@ -5,6 +5,12 @@ import InstagramText from "../../Assets/Images/instagram-logo.png";
 import FacebookPng from "../../Assets/Images/facebook-logo.png";
 import { BorderlessButton, Button, Link } from "../../Components/Atoms";
 
+// breakpoints
+//================
+// tablet - 875px
+
+// mobile - 450px
+
 export const Container = styled.div`
   margin: 0 auto;
   display: flex;
@@ -93,6 +99,13 @@ export const FacebookButton = styled(BorderlessButton)`
   display: flex;
   align-items: center;
   margin: 8px 0px;
+`;
+
+export const ErrorMessage = styled.p`
+  color: ${colors.text.error};
+  width: 270px;
+  text-align: center;
+  display: ${({ isDisplay }) => !isDisplay && "none"};
 `;
 
 export const ForgotPWLink = styled(Link)`
