@@ -18,6 +18,7 @@ import { colors } from "../../Themes/colors";
 import { slideShowImages } from "./Login.utils";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { LoginFooter, LoginForm } from "../../Components/Organisms";
+import { loginUser } from "../../Fetch/Fetch.js";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -27,6 +28,7 @@ export function Login() {
   const [loading, setLoading] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loginCount, setLoginCount] = useState(0);
 
   const view = useMediaQuery();
 
@@ -41,7 +43,16 @@ export function Login() {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log("Submitted");
+    setLoading(true);
+    loginUser(user)
+      .then((data) => {
+        setErrorMessage(data.message);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setErrorMessage(error.message);
+      });
   };
 
   useEffect(() => {

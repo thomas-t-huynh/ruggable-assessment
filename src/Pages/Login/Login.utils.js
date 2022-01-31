@@ -87,9 +87,3 @@ export const slideShowImages = [
   "https://www.instagram.com/static/images/homepage/screenshot4.jpg/842fe5699220.jpg",
   "	https://www.instagram.com/static/images/homepage/screenshot5.jpg/0a2d3016f375.jpg",
 ];
-
-export const errorMessages = {
-  excessiveLogin: "Please wait a few minutes before you try again.",
-  incorrectUser:
-    "Sorry, your password was incorrect. Please double-check your password.",
-};
