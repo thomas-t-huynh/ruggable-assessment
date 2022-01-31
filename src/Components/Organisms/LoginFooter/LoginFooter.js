@@ -8,6 +8,7 @@ import {
 } from "./LoginFooter.styles";
 import { footerLinks1, footerLinks2 } from "../../../Pages/Login/Login.utils";
 import { ReactComponent as Chevron } from "../../../Assets/Images/chevron.svg";
+import { LanguageSelect } from "../../Molecules";
 
 export function LoginFooter() {
   return (
@@ -27,6 +28,7 @@ export function LoginFooter() {
         ))}
       </div>
       <CopyrightText>
+        <LanguageSelect />
         English{" "}
         <ChevronSpan>
           <Chevron />

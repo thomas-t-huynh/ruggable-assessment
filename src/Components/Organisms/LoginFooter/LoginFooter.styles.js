@@ -22,10 +22,22 @@ export const CopyrightText = styled.div`
   color: ${colors.text.link2};
   font-size: 12px;
   margin: 12px 0px;
+  select {
+    outline: none;
+    font-size: 12px;
+    position: absolute;
+    opacity: 0;
+    width: 60px;
+    cursor: pointer;
+  }
 `;
 
 export const ChevronSpan = styled.span`
   transform: rotate(180deg);
   display: inline-block;
   margin-right: 16px;
+  pointer-events: none;
+  svg {
+    pointer-events: none;
+  }
 `;
