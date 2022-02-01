@@ -6,7 +6,7 @@ import {
   GooglePlayButton,
   Slideshow,
 } from "../../Components/Molecules";
-import { Spacer, Link } from "../../Components/Atoms";
+import { Spacer, Link, LoadingSpinner } from "../../Components/Atoms";
 import {
   Container,
   Card,
@@ -14,6 +14,7 @@ import {
   GetAppButtonContainer,
   CardContainer,
   TopContainer,
+  InstagramLogo,
 } from "./Login.styles";
 import { colors } from "../../Themes/colors";
 import { slideShowImages } from "./Login.utils";
@@ -27,8 +28,10 @@ export function Login() {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
   const view = useMediaQuery();
   const navigate = useNavigate();
 
@@ -61,22 +64,36 @@ export function Login() {
     setIsValid(false);
   }, [username, password]);
 
+  useEffect(() => {
+    // simulate loading
+    setTimeout(() => {
+      setInitialLoad(false);
+    }, 500);
+  }, []);
+
   return (
     <Container>
       <TopContainer>
         {view === "desktop" && <Slideshow images={slideShowImages} />}
         <CardContainer>
           <Card>
-            <LoginForm
-              {...{
-                handleOnChange,
-                handleOnSubmit,
-                user,
-                isValid,
-                loading,
-                errorMessage,
-              }}
-            />
+            <InstagramLogo />
+            {initialLoad ? (
+              <Spacer height={100}>
+                <LoadingSpinner />
+              </Spacer>
+            ) : (
+              <LoginForm
+                {...{
+                  handleOnChange,
+                  handleOnSubmit,
+                  user,
+                  isValid,
+                  loading,
+                  errorMessage,
+                }}
+              />
+            )}
           </Card>
           <Card>
             <p>

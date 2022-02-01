@@ -4,7 +4,6 @@ import { colors } from "../../../Themes/colors";
 import { LoadingSpinner } from "../../Atoms";
 import { Input } from "../../Molecules";
 import {
-  InstagramLogo,
   ButtonStyled,
   Line,
   LineContainer,
@@ -26,7 +25,6 @@ export function LoginForm({
   const { username, password } = user;
   return (
     <>
-      <InstagramLogo />
       <form onSubmit={handleOnSubmit}>
         <Input
           label="Phone number, username, or email"
